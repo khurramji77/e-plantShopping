@@ -30,17 +30,12 @@ const CartItem = ({ onContinueShopping }) => {
         dispatch(incrementPlantQuantity(item));
     };
 
-    const handleDecrement = (pitem) => {
-        const cart = useSelector(state => state.cart.items);
-        cart.forEach((item) => {
-            if(item.name === pitem.name){
-                if ((item.quantity - 1) === 0) {
-                    dispatch(removeItem(pitem.name));
-                }else{
-                    dispatch(decrementPlantQuantity(pitem));
-                }
-            }
-        })
+    const handleDecrement = (item) => {
+        if ((item.quantity - 1) === 0) {
+            dispatch(removeItem(item.name));
+        }else{
+            dispatch(decrementPlantQuantity(item));
+        }
     };
 
     const handleRemove = (item) => {
