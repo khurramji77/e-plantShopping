@@ -269,7 +269,7 @@ function ProductList() {
                         <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
                         <a href="/" style={{ textDecoration: 'none' }}>
                             <div>
-                                <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
+                                <h3 style={{ color: 'white' }}>Eden Nursery</h3>
                                 <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
                             </div>
                         </a>
@@ -294,7 +294,8 @@ function ProductList() {
                                         <div>{plant.description}</div>
                                         <div className="product-price">{plant.cost}</div>
                                         {/*Similarly like the above plant.name show other details like description and cost*/}
-                                        <button className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                                        {/* <button className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button> */}
+                                        <button className={`product-button ${addedToCart[plant.name] ? 'added-to-cart' : ''}`} onClick={() => handleAddToCart(plant)} disabled={!!addedToCart[plant.name]}>{addedToCart[plant.name] ? 'Added' : 'Add to Cart'}</button>
                                     </div>
                                 ))}
                             </div>
